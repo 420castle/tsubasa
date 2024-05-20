@@ -10,20 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
-// #include "minilibx/mlx.h"
-// #include "minilibx/mlx_init.c"
-
-#include "test.h"
-#include <stdio.h>
+/*
+gcc main.c -o main -Lmlx_linux -lmlx -lm -lX11 -lXext -lbsd -lm
+*/
+#include "mlx_linux/mlx.h"
 
 int	main(void)
 {
 	void	*mlx;
+	void	*mlx_win;
 
 	mlx = mlx_init();
-
-	// corona();
-	printf("\nTudo e Paranoia ou PAIBA");
-	printf("\nPra cabeca ou po peito\n");
+	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
+	mlx_loop(mlx);
 }
