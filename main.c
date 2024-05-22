@@ -12,8 +12,10 @@
 
 /*
 gcc main.c -o main -Lmlx_linux -lmlx -lm -lX11 -lXext -lbsd -lm
+gcc main.c -o main -Imlx_linux -Lmlx_linux -lmlx -lX11 -lXext
+// #include "mlx_linux/mlx.h"
 */
-#include "mlx_linux/mlx.h"
+#include <mlx.h>
 
 int	main(void)
 {
@@ -24,3 +26,4 @@ int	main(void)
 	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
 	mlx_loop(mlx);
 }
+
