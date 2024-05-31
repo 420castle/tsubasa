@@ -17,7 +17,6 @@ gcc main.c -Imlx_linux -Lmlx_linux -lmlx -lX11 -lXext -o main
 */
 
 #include <mlx.h>
-#include <stdio.h>
 #include "includes/tsubasa.h"
 #include "utils/utils_color.c"
 
@@ -33,19 +32,7 @@ int	win_close(int keycode, t_vars *vars)
 {
 	if (keycode == 65307) { // 65307 is the keycode for ESC
 		mlx_destroy_window(vars->mlx, vars->win);
-		// exit ;
 	}
-	return (0);
-}
-
-int	key_hook(int keycode, t_vars *vars)
-{
-	printf("Key pressed: %d\n", keycode);
-	return (0);
-}
-
-int	mouse_hook(int x, int y, t_vars *vars) {
-	printf("Mouse moved to: (%d, %d)\n", x, y);
 	return (0);
 }
 
@@ -76,8 +63,6 @@ int	main(void)
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, 400, 300, "Hello world!");
 	mlx_hook(vars.win, 2, 1L<<0, win_close, &vars);
-	mlx_hook(vars.win, 6, 1L << 6, mouse_hook, &vars);
-	mlx_key_hook(vars.win, key_hook, &vars);
 	img.img = mlx_new_image(vars.mlx, 400, 300);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
