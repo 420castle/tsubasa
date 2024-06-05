@@ -11,9 +11,7 @@
 /* ************************************************************************** */
 
 /*
-gcc main.c -o main -Lmlx_linux -lmlx -lm -lX11 -lXext -lbsd -lm
-gcc main.c -Imlx_linux -Lmlx_linux -lmlx -lX11 -lXext -o main
-// #include "mlx_linux/mlx.h"
+gcc tut_events.c -Imlx_linux -Lmlx_linux -lmlx -lm -lX11 -lXext -lbsd -lm ; ./a.out
 */
 
 #include <mlx.h>
